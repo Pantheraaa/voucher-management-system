@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const employeeModel = new mongoose.Schema({
     empId: {
@@ -43,4 +43,4 @@ const employeeModel = new mongoose.Schema({
     }
 });
 
-export default mongoose.model("Employee", employeeModel);
+module.exports = mongoose.model("Employee", employeeModel);

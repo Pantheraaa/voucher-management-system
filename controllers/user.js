@@ -1,6 +1,6 @@
-import User from "../models/User.js";
+const User = require("../models/User.js");
 
-export const getAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
     try {
         let fetchedusers = await User.find({isDeleted: false});
 
@@ -14,7 +14,7 @@ export const getAllUsers = async (req, res) => {
     }
 }
 
-export const newUser = async (req, res) => {
+const newUser = async (req, res) => {
     let data = req.body;
     try {
         let userIdPre = (userName) => {
@@ -43,7 +43,7 @@ export const newUser = async (req, res) => {
     }
 }
 
-export const updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
     let id = req.params.userId;
     let data = req.body;
     try {
@@ -59,7 +59,7 @@ export const updateUser = async (req, res) => {
     }
 }
 
-export const deleteUser = async (req, res) => {
+const deleteUser = async (req, res) => {
     let id = req.params.userId;
     try {
         let fetchedUser = await User.findOneAndUpdate({userId: id}, {isDeleted: true});
@@ -72,4 +72,11 @@ export const deleteUser = async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+module.exports = {
+    getAllUsers,
+    newUser,
+    updateUser,
+    deleteUser
 }

@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 dotenv.config();
 
-const DB_LINK = process.env.MONGO_URI;
+const DB_LINK = "mongodb://127.0.0.1:27017/VMS";
 
 const connect = async () => {
     mongoose.connect(DB_LINK);
     console.log("DB connected!")
 }
 
-export default connect;
+module.exports = connect;

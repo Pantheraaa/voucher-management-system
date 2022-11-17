@@ -1,6 +1,6 @@
-import Employee from "../models/Employee.js";
+const Employee = require("../models/Employee.js")
 
-export const getEmployees = async (req, res) => {
+const getEmployees = async (req, res) => {
     try {
         let fetchedEmployees = await Employee.find({isDeleted: false});
 
@@ -14,7 +14,7 @@ export const getEmployees = async (req, res) => {
     }
 }
 
-export const newEmployee = async (req, res) => {
+const newEmployee = async (req, res) => {
     const data = req.body;
     try {
         let empIdPre = (userName) => {
@@ -44,7 +44,7 @@ export const newEmployee = async (req, res) => {
     }
 }
 
-export const updateEmployee = async (req, res) => {
+const updateEmployee = async (req, res) => {
     let id = req.params.empId;
     let data = req.body;
     try {
@@ -60,7 +60,7 @@ export const updateEmployee = async (req, res) => {
     }
 }
 
-export const deleteEmployee = async (req, res) => {
+const deleteEmployee = async (req, res) => {
     let id = req.params.empId;
     try {
         let fetchedEmployee = await Employee.findOneAndUpdate({empId: id}, {isDeleted: true});
@@ -73,4 +73,11 @@ export const deleteEmployee = async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+module.exports = {
+    getEmployees,
+    newEmployee,
+    updateEmployee,
+    deleteEmployee
 }

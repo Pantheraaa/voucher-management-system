@@ -1,6 +1,6 @@
-import Admin from "../models/Admin.js";
+const Admin = require("../models/Admin.js")
 
-export const getAdmin = async (req, res) => {
+const getAdmin = async (req, res) => {
     try {
         let fetchedAdmin = await Admin.find();
 
@@ -14,7 +14,7 @@ export const getAdmin = async (req, res) => {
     }
 }
 
-export const newAdmin = async (req, res, next) => {
+const newAdmin = async (req, res, next) => {
     let data = req.body;
     try {
         let newAdmin = new Admin({
@@ -32,4 +32,9 @@ export const newAdmin = async (req, res, next) => {
     } catch (err) {
         console.log(err);
     }
+}
+
+module.exports = {
+    getAdmin,
+    newAdmin,
 }

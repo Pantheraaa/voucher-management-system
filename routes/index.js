@@ -1,6 +1,6 @@
-import userRouter from "./user.js";
-import adminRouter from "./admin.js"
-import employeeRouter from "./employee.js";
+const userRouter = require("./user")
+const adminRouter = require("./admin")
+const employeeRouter = require("./employee")
 
 const VERSION = "v1";
 
@@ -11,4 +11,4 @@ function router(app) {
 }
 
 
-export default router;
+module.exports = router;

@@ -20,3 +20,5 @@ app.listen(port, () => {
     connect();
     console.log(`App is listening on port ${port}...`);
 })
+
+module.exports = app;

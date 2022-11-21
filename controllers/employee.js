@@ -2,8 +2,7 @@ const Employee = require("../models/Employee.js")
 
 const getEmployees = async (req, res) => {
     try {
-        let fetchedEmployees = await Employee.find({isDeleted: false});
-
+        let fetchedEmployees = await Employee.find({ isDeleted: false }).populate('coupansGenerated');
         res.json({
             success: true,
             message: "Employees found successfully!",

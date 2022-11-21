@@ -36,7 +36,10 @@ const employeeModel = new mongoose.Schema({
         type: String,
         required: true,
     },
-    coupansGenerated: [String],
+    coupansGenerated: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Voucher'
+    }],
     isDeleted: {
         type: Boolean,
         default: false,
